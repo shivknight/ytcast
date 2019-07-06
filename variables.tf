@@ -8,11 +8,17 @@ variable "vpc_id" {
   default = "vpc-7c6cfd1b"
 }
 variable "subnet_id" {
-  default = "subnet-b2a2c1be"
+  default = "subnet-95f88af0"
 }
 
 variable "security_group_ids" {
   default = [
     "sg-000f1e77"
   ]
+}
+
+variable "tags" {
+  default = {
+    Name = "ytcast"
+  }
 }
