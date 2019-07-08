@@ -6,16 +6,23 @@ import mutagen
 from pprint import pprint
 
 rss_items = []
+default_metadata = {
+  "title"   : "Unknown title",
+  "purl"    : "Unknown URL",
+  "artist"  : "Unknown artist",
+  "description"    : "No description",
+  "pubDate"    : "Unknown publication date",
+}
 
 files = os.scandir('./podcasts')
 for f in files:
   metadata = mutagen.File(f)
   i = Item (
-    title = metadata['title'],
-    link = metadata['purl'],
-    author = metadata['artist'],
-    description = metadata['description'],
-    pubDate = datetime.strptime(metadata['date'][0], '%Y%m%d')
+    title = metadata.get('title', default_metadata['title']),
+    link = metadata.get('purl', default_metadata['purl']),
+    author = metadata.get('artist', default_metadata['artist']),
+    description = metadata.get('description', default_metadata['description']),
+    pubDate = datetime.strptime(metadata.get('date', default_metadata['pubDate'])[0], '%Y%m%d')
   )
   rss_items.append(i)
 
