@@ -3,4 +3,5 @@ resource "aws_route53_record" "ytcast" {
   name = "${var.name}"
   type = "CNAME"
   records = ["${aws_s3_bucket.ytcast.website_endpoint}"]
+  ttl = 300
 }
