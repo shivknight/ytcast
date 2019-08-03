@@ -1,4 +1,4 @@
-resource "aws_s3_bucket" "podcasts" {
+resource "aws_s3_bucket" "ytcast" {
   bucket = "${lookup(var.tags, "Name")}"
   acl = "public-read"
 
