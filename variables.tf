@@ -22,3 +22,7 @@ variable "tags" {
     Name = "ytcast"
   }
 }
+
+variable "shivknight_com_zone" {
+  default = "ZWED7TSK70W83"
+}
